@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <form id="form1">
+    <form id="placeForm">
     Enter the starting position x and y coordinates.<br>
     Coordinate position x: <input type="number" id="cordx"><br>
     Coordinate position y: <input type="number" id="cordy"><br>
@@ -31,7 +31,7 @@
     </div>
 
     <script>
-        const pForm = document.querySelector('#form');
+        const pForm = document.querySelector('#placeForm');
         document.getElementById("formBtn").onclick = function () {
         var X_IN_PLACE = pForm.cordx.value;
         var Y_IN_PLACE = pForm.cordy.value;
