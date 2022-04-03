@@ -33,10 +33,10 @@
 
     <script>
         const pForm = document.querySelector('#placeForm');
-        const background = document.getElementById("canvas_background");
-        const bg = background.getContext("2d");
-        const  foreground = document.getElementById("canvas_foreground");
-        const fg = foreground.getContext("2d");
+        var background = "";
+        var bg = "";
+        var foreground = "";
+        var fg = "";
         var X_IN_PLACE=500;
         var Y_IN_PLACE=200;
         var SRC_IMAGE="";
@@ -62,6 +62,11 @@
             ctx.strokeStyle = '#bbbbbb';
             ctx.stroke();
         }
+            
+        background = document.getElementById("canvas_background");
+        bg = background.getContext("2d");
+        foreground = document.getElementById("canvas_foreground");
+        fg = foreground.getContext("2d");
             
         const img = new Image();
         img.onload = function(){
