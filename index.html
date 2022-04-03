@@ -32,13 +32,16 @@
     </div>
 
     <script>
-        
+        const pForm = document.querySelector('#placeForm');
+        document.getElementById("formBtn").onclick = function () {
+        var X_IN_PLACE = pForm.cordx.value;
+        var Y_IN_PLACE = pForm.cordy.value;
+        var SRC_IMAGE = pForm.srcimage.value;
+         
         const X_PIXELS=23
         const Y_PIXELS=23
         const X_OFFSET=200
         const Y_OFFSET=200
-        const X_IN_PLACE=777
-        const Y_IN_PLACE=777
 
         function getMousePos(canvas, evt) {
             const rect = canvas.getBoundingClientRect();
@@ -81,7 +84,7 @@
             bg.drawImage(img, 0, 0, img.width, img.height, 0, Y_OFFSET, w, h)
             drawGrid(0, Y_OFFSET, w, h + Y_OFFSET, bg)
         };
-        img.src = "https://i.imgur.com/iYEaFF3.png";
+        img.src = SRC_IMAGE;
 
         function drawText(text, x, y){
             fg.font = '80px Sans-serif';
