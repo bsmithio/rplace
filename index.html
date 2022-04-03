@@ -31,12 +31,11 @@
     </div>
 
     <script>
-        window.onload = function () {
         document.getElementById("form1").onsubmit = function () {
         var X_IN_PLACE = document.getElementById("cordx");
         var Y_IN_PLACE = document.getElementById("cordy");
         var SRC_IMAGE = document.getElementById("date1");
-            
+        };
         const X_PIXELS=23
         const Y_PIXELS=23
         const X_OFFSET=200
@@ -146,7 +145,6 @@
             // Reload every 5 minutes to fetch updates from the gh
             location.reload(); 
         }, 60000 * 5)
-        };
     </script>
 
 </body>
