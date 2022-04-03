@@ -23,7 +23,7 @@
     Coordinate position x: <input type="number" id="cordx"><br>
     Coordinate position y: <input type="number" id="cordy"><br>
     Image URL: <input type="text" id="srcimage"><br>
-    <input type="submit" value="Generate" />
+    <button type='submit' form='form' id='formBtn'>Generate</button>
     </form>
     <div id = "container" class = "container">
         <canvas id = "canvas_background" width = "800" height = "500"></canvas>
@@ -31,7 +31,7 @@
     </div>
 
     <script>
-        document.getElementById("form1").onclick = function () {
+        document.getElementById("formBtn").onclick = function () {
         var X_IN_PLACE = document.getElementById("cordx");
         var Y_IN_PLACE = document.getElementById("cordy");
         var SRC_IMAGE = document.getElementById("date1");
