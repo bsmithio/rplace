@@ -31,10 +31,11 @@
     </div>
 
     <script>
+        const pForm = document.getElementById('form');
         document.getElementById("formBtn").onclick = function () {
-        var X_IN_PLACE = document.getElementById("cordx");
-        var Y_IN_PLACE = document.getElementById("cordy");
-        var SRC_IMAGE = document.getElementById("date1");
+        var X_IN_PLACE = pForm.cordx.value;
+        var Y_IN_PLACE = pForm.cordy.value;
+        var SRC_IMAGE = pForm.srcimage.value;
             
         const X_PIXELS=23
         const Y_PIXELS=23
