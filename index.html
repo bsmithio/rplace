@@ -33,14 +33,16 @@
     <script>
         const pForm = document.querySelector('#placeForm');
         document.getElementById("formBtn").onclick = function () {
-        var X_IN_PLACE = pForm.cordx.value;
-        var Y_IN_PLACE = pForm.cordy.value;
+        #var X_IN_PLACE = pForm.cordx.value;
+        #var Y_IN_PLACE = pForm.cordy.value;
         var SRC_IMAGE = pForm.srcimage.value;
             
         const X_PIXELS=23
         const Y_PIXELS=23
         const X_OFFSET=200
         const Y_OFFSET=200
+        const X_IN_PLACE=777
+        const Y_IN_PLACE=777
 
         function getMousePos(canvas, evt) {
             const rect = canvas.getBoundingClientRect();
