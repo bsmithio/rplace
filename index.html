@@ -46,8 +46,8 @@
         const Y_OFFSET=200;
         
         document.getElementById("formBtn").onclick = function () {
-        X_IN_PLACE = pForm.cordx.value;
-        Y_IN_PLACE = pForm.cordy.value;
+        X_IN_PLACE = pForm.cordx.valueAsNumber;
+        Y_IN_PLACE = pForm.cordy.valueAsNumber;
         SRC_IMAGE = pForm.srcimage.value;
         
         function getMousePos(canvas, evt) {
