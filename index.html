@@ -33,23 +33,22 @@
 
     <script>
         const pForm = document.querySelector('#placeForm');
+        const background = document.getElementById("canvas_background");
+        const bg = background.getContext("2d");
+        const  foreground = document.getElementById("canvas_foreground");
+        const fg = foreground.getContext("2d");
+        var X_IN_PLACE=0;
+        var Y_IN_PLACE=0;
+        var SRC_IMAGE="";
+        const X_PIXELS=23;
+        const Y_PIXELS=23;
+        const X_OFFSET=200;
+        const Y_OFFSET=200;
+        
         document.getElementById("formBtn").onclick = function () {
-        var X_IN_PLACE = pForm.cordx.value;
-        var Y_IN_PLACE = pForm.cordy.value;
-        var SRC_IMAGE = pForm.srcimage.value;
-         
-        const X_PIXELS=23
-        const Y_PIXELS=23
-        const X_OFFSET=200
-        const Y_OFFSET=200
-
-        function getMousePos(canvas, evt) {
-            const rect = canvas.getBoundingClientRect();
-            return {
-                x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
-                y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
-            };
-        }
+        X_IN_PLACE = pForm.cordx.value;
+        Y_IN_PLACE = pForm.cordy.value;
+        SRC_IMAGE = pForm.srcimage.value;
 
         function drawGrid(x_0, y_0, x_max, y_max, ctx) {
             for (let x = x_0; x <= x_max; x += X_PIXELS) {
@@ -63,13 +62,7 @@
             ctx.strokeStyle = '#bbbbbb';
             ctx.stroke();
         }
-
-        const background = document.getElementById("canvas_background");
-        const bg = background.getContext("2d");
-
-        const  foreground = document.getElementById("canvas_foreground");
-        const fg = foreground.getContext("2d");
-
+            
         const img = new Image();
         img.onload = function(){
             w = img.width * X_PIXELS
@@ -85,7 +78,8 @@
             drawGrid(0, Y_OFFSET, w, h + Y_OFFSET, bg)
         };
         img.src = SRC_IMAGE;
-
+        };
+        
         function drawText(text, x, y){
             fg.font = '80px Sans-serif';
             fg.strokeStyle = 'black';
@@ -94,7 +88,13 @@
             fg.fillStyle = 'white';
             fg.fillText(text, x, y);
         }
-        };
+        function getMousePos(canvas, evt) {
+            const rect = canvas.getBoundingClientRect();
+            return {
+                x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
+                y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+            };
+        }
         foreground.addEventListener('mousemove', event =>
         {
             let p = getMousePos(foreground, event);
