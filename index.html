@@ -37,8 +37,8 @@
         var bg = "";
         var foreground = "";
         var fg = "";
-        var X_IN_PLACE=500;
-        var Y_IN_PLACE=200;
+        var X_IN_PLACE=0;
+        var Y_IN_PLACE=0;
         var SRC_IMAGE="";
         const X_PIXELS=23;
         const Y_PIXELS=23;
@@ -49,7 +49,15 @@
         X_IN_PLACE = pForm.cordx.value;
         Y_IN_PLACE = pForm.cordy.value;
         SRC_IMAGE = pForm.srcimage.value;
-
+        
+        function getMousePos(canvas, evt) {
+            const rect = canvas.getBoundingClientRect();
+            return {
+                x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
+                y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+            };
+        }
+        
         function drawGrid(x_0, y_0, x_max, y_max, ctx) {
             for (let x = x_0; x <= x_max; x += X_PIXELS) {
                 ctx.moveTo(x, y_0);
@@ -83,8 +91,8 @@
             drawGrid(0, Y_OFFSET, w, h + Y_OFFSET, bg)
         };
         img.src = SRC_IMAGE;
-        };
         
+                
         function drawText(text, x, y){
             fg.font = '80px Sans-serif';
             fg.strokeStyle = 'black';
@@ -93,13 +101,7 @@
             fg.fillStyle = 'white';
             fg.fillText(text, x, y);
         }
-        function getMousePos(canvas, evt) {
-            const rect = canvas.getBoundingClientRect();
-            return {
-                x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
-                y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
-            };
-        }
+
         foreground.addEventListener('mousemove', event =>
         {
             let p = getMousePos(foreground, event);
@@ -153,6 +155,7 @@
             location.reload(); 
         }, 60000 * 5)
         console.log(X_IN_PLACE + "," + Y_IN_PLACE + "," + SRC_IMAGE);
+        };
     </script>
 
 </body>
